@@ -1,0 +1,12 @@
+.navbar-nav {
+  justify-content: flex-end;
+}
+.form-inline {
+  display: flex;
+  align-items: center;
+}
+.navbar-collapse form.form-inline {
+  margin-left: auto;
+}
+
+

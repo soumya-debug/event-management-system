@@ -1,0 +1,129 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Portal</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/employees">Employees</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Logout</a>
+        </li>
+      </ul>
+
+      <form class="form-inline my-2 my-lg-0" (submit)="searchEmployees()">
+        <div class="input-group">
+          <input
+            class="form-control"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            [(ngModel)]="searchText"
+            name="searchText"
+          />
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</nav>
+
+<div
+  class="modal fade"
+  #employeeDetailsModal
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="employeeDetailsModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="employeeDetailsModalLabel">
+          Employee Details
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="hideEmployeeDetailsModal()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><strong>ID:</strong> {{ employeeId }}</p>
+        <p><strong>Name:</strong> {{ employeeName }}</p>
+        <p><strong>Email:</strong> {{ employeeEmail }}</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="hideEmployeeDetailsModal()"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  #employeeNotFoundModal
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="employeeNotFoundModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="employeeNotFoundModalLabel">
+          Employee Not Found
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="hideEmployeeNotFoundModal()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="color: red;">Employee information doesn't exist.</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="hideEmployeeNotFoundModal()"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

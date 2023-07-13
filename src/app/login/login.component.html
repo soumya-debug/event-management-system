@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Login</h5>
+          <form (ngSubmit)="login(loginForm)" #loginForm="ngForm" novalidate>
+            <!-- Form fields -->
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                [(ngModel)]="username"
+                required
+              />
+              <div
+                *ngIf="
+                  loginForm.controls['username'].invalid &&
+                  (loginForm.controls['username'].dirty ||
+                    loginForm.controls['username'].touched)
+                "
+                class="text-danger"
+              >
+                Username is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                [(ngModel)]="password"
+                required
+              />
+              <div
+                *ngIf="
+                  loginForm.controls['password'].invalid &&
+                  (loginForm.controls['password'].dirty ||
+                    loginForm.controls['password'].touched)
+                "
+                class="text-danger"
+              >
+                Password is required.
+              </div>
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="rememberMe"
+                name="rememberMe"
+                [(ngModel)]="rememberMe"
+              />
+              <label class="form-check-label" for="rememberMe"
+                >Remember me</label
+              >
+            </div>
+            <div class="text-center mt-3">
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+            <div
+              *ngIf="errorMessage"
+              class="text-danger mt-3"
+              style="text-align: center"
+            >
+              {{ errorMessage }}
+            </div>
+          </form>
+          <div class="text-center mt-3">
+            <a [routerLink]="['/password-change']">Forgot password?</a>
+          </div>
+          <div class="text-center mt-3">
+            <p>
+              Don't have an account? <a [routerLink]="['/signup']">Sign up</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

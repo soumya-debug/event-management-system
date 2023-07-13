@@ -1,0 +1,29 @@
+.container {
+  margin-top: 20px;
+}
+
+.employee-details {
+  width: 100%;
+}
+
+.employee-details h2 {
+  margin-bottom: 10px;
+}
+
+.actions {
+  margin-top: 20px;
+  margin-left: 16px;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+}
+
+.actions button {
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background-color: #0dcaf0;
+  color: black;
+}
+

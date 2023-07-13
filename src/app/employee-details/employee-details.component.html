@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card employee-details">
+        <div class="card-header">
+          <!-- <h2>Employee Details</h2> -->
+          <p>
+            Details of
+            <b>{{ employee?.first_name }} {{ employee?.last_name }}</b>
+          </p>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <b>Employee ID:</b
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {{ employee?.id }}
+            </li>
+            <li class="list-group-item">
+              <b>Employee First Name:</b>&nbsp;&nbsp; {{ employee?.first_name }}
+            </li>
+            <li class="list-group-item">
+              <b>Employee Last Name:</b>&nbsp;&nbsp; {{ employee?.last_name }}
+            </li>
+            <li class="list-group-item">
+              <b>Employee Email:</b
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {{ employee?.email }}
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="actions">
+              <button class="btn btn-primary" (click)="goToEmployeeList()">
+                Employee List
+              </button>
+              <button class="btn btn-danger" (click)="deleteEmployee()">
+                Delete
+              </button>
+              <button class="btn btn-secondary" (click)="goToUpdateEmployee()">
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<ng-template #deleteConfirmationModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Confirm Delete</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to delete this employee?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">
+      Cancel
+    </button>
+    <button type="button" class="btn btn-danger" (click)="confirmDelete()">
+      Delete
+    </button>
+  </div>
+</ng-template>

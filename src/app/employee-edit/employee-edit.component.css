@@ -1,0 +1,26 @@
+/* CSS for update employee form */
+.container {
+  margin-top: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.btn-primary {
+  margin-right: 10px;
+  background-color: #0dcaf0;
+  color: black;
+}
+
+.btn-secondary {
+  margin-right: 10px;
+}
