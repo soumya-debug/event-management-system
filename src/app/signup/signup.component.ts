@@ -26,11 +26,11 @@ export class SignupComponent {
 
   signup(): void {
     // Check if the form is valid
-    if (this.signupForm.invalid) {
-      // Set error message and return
-      this.errorMessage = 'Error: Invalid form data.';
-      return;
-    }
+    // if (this.signupForm.invalid) {
+    //   // Set error message and return
+    //   this.errorMessage = 'Error: Invalid form data.';
+    //   return;
+    // }
 
     // Check if any field is empty
     const { username, email, password } = this.signupForm.value;

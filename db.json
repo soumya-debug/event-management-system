@@ -17,6 +17,12 @@
       "first_name": "Ann",
       "last_name": "Smith",
       "email": "ann@codingthesmartway.com"
+    },
+    {
+      "id": "4",
+      "first_name": "David ",
+      "last_name": "Peterson",
+      "email": "david@example.com"
     }
   ]
 }

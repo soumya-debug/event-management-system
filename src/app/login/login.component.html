@@ -19,9 +19,10 @@
               />
               <div
                 *ngIf="
-                  loginForm.controls['username'].invalid &&
-                  (loginForm.controls['username'].dirty ||
-                    loginForm.controls['username'].touched)
+                  loginForm &&
+                  loginForm.controls['username']?.invalid &&
+                  (loginForm.controls['username']?.dirty ||
+                    loginForm.controls['username']?.touched)
                 "
                 class="text-danger"
               >
@@ -41,9 +42,10 @@
               />
               <div
                 *ngIf="
-                  loginForm.controls['password'].invalid &&
-                  (loginForm.controls['password'].dirty ||
-                    loginForm.controls['password'].touched)
+                  loginForm &&
+                  loginForm.controls['password']?.invalid &&
+                  (loginForm.controls['password']?.dirty ||
+                    loginForm.controls['password']?.touched)
                 "
                 class="text-danger"
               >
@@ -66,13 +68,14 @@
               <button type="submit" class="btn btn-primary">Login</button>
             </div>
             <div
-              *ngIf="errorMessage"
+              *ngIf="showError"
               class="text-danger mt-3"
               style="text-align: center"
             >
-              {{ errorMessage }}
+              Invalid username or password.
             </div>
           </form>
+
           <div class="text-center mt-3">
             <a [routerLink]="['/password-change']">Forgot password?</a>
           </div>
@@ -86,4 +89,3 @@
     </div>
   </div>
 </div>
-

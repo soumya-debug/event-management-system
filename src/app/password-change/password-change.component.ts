@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 import { UserService } from '../user.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./password-change.component.css'],
 })
 export class PasswordChangeComponent {
+  @ViewChild('passwordChangeForm', { static: false })
+  passwordChangeForm!: NgForm;
   email: string = '';
   newPassword: string = '';
   confirmPassword: string = '';
@@ -42,6 +45,7 @@ export class PasswordChangeComponent {
 
     // Check if the new passwords match
     if (this.newPassword !== this.confirmPassword) {
+      this.passwordChangeForm.controls['confirmPassword'].markAsTouched();
       this.passwordsMismatch = true;
       return;
     }
